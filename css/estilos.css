@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 /* Reset básico */
 * {
   margin: 0;
@@ -6,93 +9,149 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f8f9fa;
+  font-family: 'Roboto', sans-serif;
+  background: url('../img/fondo-cocina.jpg') no-repeat center center fixed;
+  background-size: cover;
   color: #333;
   line-height: 1.6;
-  padding: 2rem;
+  padding: 3rem 2rem;
 }
 
 /* Contenedor principal */
 #container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
-  background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 3rem 4rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo base de cabeceras */
+/* Cabeceras */
 #cabecera,
-#cabecera1,
 #cabecera2,
 #cabecera3,
 #cabecera4 {
   color: white;
-  padding: 1rem 0;
+  padding: 1.2rem;
   text-align: center;
-  font-size: 2rem;
-  border-radius: 8px;
+  font-size: 2.2rem;
+  border-radius: 10px;
   margin-bottom: 2rem;
+  letter-spacing: 1px;
 }
 
-/* Colores diferenciados por tipo */
-#cabecera  { background-color: #58dd5d; } /* Índice general */
-#cabecera1 { background-color: #2196F3; } /* Entrantes */
-#cabecera2 { background-color: #FF9800; } /* Primeros platos */
-#cabecera3 { background-color: #4CAF50; } /* Segundos platos */
-#cabecera4 { background-color: #E91E63; } /* Postres */
+/* Cabecera de Entrantes con imagen decorativa */
+#cabecera1 {
+  background-image: url('../img/banner-entrantes.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  padding: 2rem 1rem;
+  font-size: 2.5rem;
+  border-radius: 12px;
+}
+
+/* Colores por tipo */
+#cabecera  { background: #388e3c; } /* Índice */
+#cabecera2 { background: #fb8c00; } /* Primeros */
+#cabecera3 { background: #455a64; } /* Segundos */
+#cabecera4 { background: #c2185b; } /* Postres */
 
 /* Títulos */
 h1 {
-  font-size: 1.8rem;
-  color: #333;
+  font-size: 2rem;
   margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 5px solid #4CAF50;
+  background: linear-gradient(to right, #e8f5e9, transparent);
+  color: #222;
+  display: flex;
+  align-items: center;
+}
+
+h1::before {
+  content: '';
+  display: inline-block;
+  background-image: url('../img/icono-receta.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  margin-right: 0.75rem;
+}
+
+/* Otros encabezados */
+h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #444;
 }
 
 h4 {
-  font-size: 1rem;
-  font-weight: normal;
-  color: #444;
+  font-size: 1.1rem;
+  color: #555;
   margin-bottom: 1rem;
 }
 
 /* Listas */
 ul, ol {
-  margin-left: 2rem;
+  padding-left: 2rem;
   margin-bottom: 1.5rem;
 }
 
 li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+li a::before {
+  content: "🍴 ";
+  margin-right: 0.5rem;
 }
 
 /* Enlaces */
 a {
-  color: #4CAF50;
+  color: #1e88e5;
+  font-weight: 500;
   text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s;
 }
 
 a:hover {
+  color: #0d47a1;
+  transform: scale(1.05);
   text-decoration: underline;
 }
 
-/* Enlace al índice */
+/* Enlace índice inferior */
 #titulo_inferior {
   display: block;
   text-align: center;
   margin-top: 2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   color: #333;
+  background-color: #e0f2f1;
+  padding: 0.8rem;
+  border-radius: 8px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  transition: 0.3s;
+}
+
+#titulo_inferior:hover {
+  background-color: #b2dfdb;
+  color: #00695c;
 }
 
 /* Caja destacada opcional */
 .highlight {
-  background-color: #f1f8e9;
+  background-color: #fff9c4;
   padding: 1rem;
-  border-left: 6px solid #c5e1a5;
-  margin: 1.5rem 0;
+  border-left: 6px solid #fbc02d;
+  margin: 2rem 0;
 }
 
 /* Pie de página */
@@ -100,5 +159,24 @@ footer {
   margin-top: 3rem;
   text-align: center;
   font-size: 0.9rem;
-  color: #aaa;
+  color: #999;
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #eee;
+  }
+  #container {
+    background-color: #1e1e1e;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+  }
+  a {
+    color: #90caf9;
+  }
+  #titulo_inferior {
+    background-color: #263238;
+    color: #fff;
+  }
 }
